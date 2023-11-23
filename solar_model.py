@@ -37,7 +37,7 @@ def move_space_object(body, dt):
     ay = body.Fx/body.m
      # FIXME: не понимаю как менять...
     body.Vx += ax*dt
-    body.Vx += ax*dt
+    body.Vy += ay*dt
     body.x+=body.Vx*dt
     body.y+=body.Vy*dt
     # FIXME: not done recalculation of y coordinate!
