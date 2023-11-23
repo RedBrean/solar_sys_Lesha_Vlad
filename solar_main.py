@@ -7,6 +7,7 @@ from solar_model import *
 from solar_input import *
 from solar_objects import *
 
+import thorpy
 
 import time
 import numpy as np
@@ -16,7 +17,7 @@ import numpy as np
 
 timer = None
 
-alive = True
+alive = True 
 
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
