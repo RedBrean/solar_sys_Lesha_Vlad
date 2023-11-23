@@ -38,6 +38,8 @@ def move_space_object(body, dt):
      # FIXME: не понимаю как менять...
     body.Vx += ax*dt
     body.Vx += ax*dt
+    body.x+=body.Vx*dt
+    body.y+=body.Vy*dt
     # FIXME: not done recalculation of y coordinate!
     
 
