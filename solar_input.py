@@ -50,11 +50,11 @@ def parse_star_parameters(line, star):
     l = line.split()
     star.R=int(l[1])
     star.color=str(l[2])
-    star.m=int(l[2])
-    star.x=int(l[3])
-    star.y=int(l[4])
-    star.Vx=int(l[5])
-    star.Vy=int(l[6])
+    star.m=int(l[3])
+    star.x=int(l[4])
+    star.y=int(l[5])
+    star.Vx=int(l[6])
+    star.Vy=int(l[7])
     # DONTFIXME: probebly done yet
 
 def parse_planet_parameters(line, planet):
@@ -75,11 +75,11 @@ def parse_planet_parameters(line, planet):
     l = line.split()
     planet.R=int(l[1])
     planet.color=str(l[2])
-    planet.m=int(l[2])
-    planet.x=int(l[3])
-    planet.y=int(l[4])
-    planet.Vx=int(l[5])
-    planet.Vy=int(l[6])
+    planet.m=float(l[3])
+    planet.x=int(l[4])
+    planet.y=int(l[5])
+    planet.Vx=int(l[6])
+    planet.Vy=int(l[7])
     # DONTFIXME: probebly done yet
 
 
