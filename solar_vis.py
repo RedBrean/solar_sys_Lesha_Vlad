@@ -88,4 +88,3 @@ class DrawableObject:
         x = scale_factor*self.obj.x + window_width/2
         y = scale_factor*self.obj.y + window_height/2
         pg.draw.circle(surface, self.obj.color, (x, y),self.obj.R)
-        print(self.obj.GetString())
