@@ -37,7 +37,7 @@ class SpaceObject:
     """Изображение тела"""
 
     def GetString(self):
-        return f"{self.m}, x = {x}, y = {y}, r = {r}"
+        return f"{self.m}, x = {self.x}, y = {self.y}, r = {self.R}"
 
 class Star(SpaceObject):
     """Тип данных, описывающий звезду.
