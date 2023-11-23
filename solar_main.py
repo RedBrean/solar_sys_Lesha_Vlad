@@ -145,8 +145,8 @@ def main():
 
     pg.init()
     
-    width = 800
-    height = 700
+    width = window_width #из vis
+    height = window_height #из vis
     screen = pg.display.set_mode((width, height))
     last_time = time.perf_counter()
     drawer = Drawer(screen)
@@ -162,7 +162,6 @@ def main():
             timer.set_text(text)
 
         last_time = cur_time
-        print(len(space_objects))
         
         drawer.update(space_objects, box)
         time.sleep(1.0 / 60)

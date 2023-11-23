@@ -11,10 +11,10 @@ import pygame as pg
 header_font = "Arial-16"
 """Шрифт в заголовке"""
 
-window_width = 900
+window_width = 800
 """Ширина окна"""
 
-window_height = 12
+window_height = 600
 """Высота окна"""
 
 scale_factor = 1
@@ -74,7 +74,6 @@ class Drawer:
         self.screen.fill((0, 0, 0))
         for figure in figures:
             figure.draw(self.screen)
-            print("I see figure")
         
         ui.blit()
         ui.update()
@@ -86,4 +85,4 @@ class DrawableObject:
         self.obj = obj
 
     def draw(self, surface):
-            pass  # FIXME
+        
