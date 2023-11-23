@@ -2,7 +2,7 @@
 # license: GPLv3
 
 import pygame as pg
-
+from solar_objects import SpaceObject
 """Модуль визуализации.
 Нигде, кроме этого модуля, не используются экранные координаты объектов.
 Функции, создающие гaрафические объекты и перемещающие их на экране, принимают физические координаты
@@ -81,11 +81,11 @@ class Drawer:
 
 
 class DrawableObject:
-    def __init__(self, obj):
+    def __init__(self, obj : SpaceObject):
         self.obj = obj
 
     def draw(self, surface):
-        x = scale_factor*self.obj.x
-        y = scale_factor*self.obj.y
+        x = scale_factor*self.obj.x + window_width/2
+        y = scale_factor*self.obj.y + window_height/2
         pg.draw.circle(surface, self.obj.color, (x, y),self.obj.R)
-        print
+        print(self.obj.GetString())
