@@ -22,7 +22,7 @@ def calculate_force(body, space_objects):
         cosa=(body.x - obj.x)/r
         sina=(body.y - obj.y)/r
         body.Fx += body.m*obj.m*cosa/(r)**2  # FIXME: нужно вывести формулу...
-        body.Fy +=  body.m*obj.m*sina/(r)**2 # FIXME: нужно вывести формулу...
+        body.Fy += body.m*obj.m*sina/(r)**2 # FIXME: нужно вывести формулу...
 
 
 def move_space_object(body, dt):
@@ -39,6 +39,7 @@ def move_space_object(body, dt):
     body.Vx += ax*dt
     body.Vx += ax*dt
     # FIXME: not done recalculation of y coordinate!
+    
 
 
 def recalculate_space_objects_positions(space_objects, dt):
