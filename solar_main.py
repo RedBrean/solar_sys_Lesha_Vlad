@@ -12,6 +12,7 @@ import time
 import numpy as np
 
 #test
+#Пупа и Лупа
 
 timer = None
 
