@@ -162,6 +162,7 @@ def main():
             timer.set_text(text)
 
         last_time = cur_time
+        print(len(space_objects))
         
         drawer.update(space_objects, box)
         time.sleep(1.0 / 60)
