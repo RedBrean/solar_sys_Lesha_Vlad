@@ -2,6 +2,7 @@
 # license: GPLv3
 
 from solar_objects import Star, Planet
+from solar_vis import DrawableObject
 
 
 def read_space_objects_data_from_file(input_filename):
@@ -30,7 +31,7 @@ def read_space_objects_data_from_file(input_filename):
             else:
                 print("Unknown space object")
 
-    return objects
+    return [DrawableObject(obj) for obj in objects]
 
 
 def parse_star_parameters(line, star):
