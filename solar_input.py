@@ -4,6 +4,7 @@
 from solar_objects import Star, Planet
 from solar_vis import DrawableObject
 
+from solar_main import output_scale
 
 def read_space_objects_data_from_file(input_filename):
     """Cчитывает данные о космических объектах из файла, создаёт сами объекты
@@ -83,8 +84,9 @@ def parse_planet_parameters(line, planet):
     planet.Vy=float(l[7])
     # DONTFIXME: probebly done yet
 
+nextWritedTime = 0 #sorry...
 
-def write_space_objects_data_to_file(output_filename, space_objects):
+def write_space_objects_data_to_file(output_filename, space_objects, physical_time):
     """Сохраняет данные о космических объектах в файл.
     Строки должны иметь следующий формат:
     Star <радиус в пикселах> <цвет> <масса> <x> <y> <Vx> <Vy>
@@ -95,10 +97,37 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     **output_filename** — имя входного файла
     **space_objects** — список объектов планет и звёзд
     """
-    with open(output_filename, 'w') as out_file:
+    if(physical_time < 500):
+        out_file = open(output_filename, "w")
+        out_file.write("Start writing\n")
+        return
+    with open(output_filename, 'a') as out_file:
+
+        years = int(physical_time) // 31536000
+        days = int(physical_time) % 31536000 // 86400
+        hours = int(physical_time) % 86400 // 3600
+        minutes = int(physical_time) % 3600 // 60
+        seconds = int(physical_time) % 60
+
+        hours = str(hours)
+        minutes = str(minutes)
+        seconds = str(seconds)
+        hours = "0"*(2-len(hours)) + hours
+        minutes = "0"*(2-len(minutes)) + minutes
+        seconds = "0"*(2-len(seconds)) + seconds
+
+        global nextWritedTime, output_scale
+
+        if(len(space_objects) == 0 or physical_time < nextWritedTime):
+            return
+
+        nextWritedTime += output_scale
+
+        out_file.write(f"Date: {years} y, {days} d, time: {hours}:{minutes}:{seconds}\n")
         for obj in space_objects:
-            out_file.write( obj.type,obj.r,obj.color,obj.x,obj.y,obj.Vx,obj.Vy)
-            # FIXME: should store real values
+            out_file.write(f"Type : {obj.obj.type}, R = {obj.obj.R}, color = {obj.obj.color}, x = {obj.obj.x}, y = {obj.obj.y}, vx = {obj.obj.Vx}, vy = {obj.obj.Vy}\n")
+        out_file.write("\n-----------------------------------------------\n")
+        
 
 # FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
 # нет

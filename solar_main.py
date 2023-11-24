@@ -36,6 +36,9 @@ time_scale = 1000.0
 space_objects = []
 """Список космических объектов."""
 
+output_scale = 180000
+"""Шаг по времени для записи в секундах"""
+
 def execution(delta):
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
     а также обновляя их положение на экране.
@@ -166,6 +169,11 @@ def main():
 
         last_time = cur_time
         
+        outputDataFileName = FILENAME.split(".")[0] + "_output.txt"
+
+        
+        write_space_objects_data_to_file(outputDataFileName, space_objects, model_time)
+
         drawer.update(space_objects, box)
         time.sleep(1.0 / 60)
 
