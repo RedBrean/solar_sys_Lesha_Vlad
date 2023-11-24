@@ -11,10 +11,10 @@ from solar_objects import SpaceObject
 header_font = "Arial-16"
 """Шрифт в заголовке"""
 
-window_width = 800
+window_width = 900
 """Ширина окна"""
 
-window_height = 600
+window_height = 800
 """Высота окна"""
 
 scale_factor = 1
